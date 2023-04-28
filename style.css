@@ -44,8 +44,13 @@ body{
     align-self: flex-end;
     
 }
-
  
+#cloud {
+    position: absolute;
+    width: 130px;
+    right: 0;
+    top: 100px;
+}
 
 .boneco{
     border: 2px solid white; 
@@ -128,6 +133,10 @@ body{
     animation: obstaculo-animation 2s linear infinite ; 
 }
 
+.clouds{
+    animation: clouds-move 15s linear infinite;
+}
+
 
 
 @keyframes obstaculo-animation {
@@ -156,5 +165,14 @@ body{
     100% {
         bottom: 0;
         transform: rotate(90deg);
+    }
+}
+
+@keyframes clouds-move {
+    from {
+        right: -130px;
+    }
+    to {
+        right: 100%;
     }
 }

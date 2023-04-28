@@ -4,6 +4,7 @@ const boneco = document.querySelector('.boneco')
 const obstaculo = document.querySelector('.obstaculo')
 const começarJogo = document.getElementById('começa-jogo')
 const resetJogo = document.getElementById('reseta-jogo')
+const cloud = document.getElementById('cloud')
 
 //-------pulo
 const jump = () => {
@@ -18,9 +19,12 @@ gameBoard.addEventListener('click', jump)
 const loop = setInterval(() => {
 
     const obstaculoPosition = obstaculo.offsetLeft;
+    const cloudPosition = cloud.offsetLeft;
     const bonecoPosition = +window.getComputedStyle(boneco).bottom.replace('px', '')
     
     if(obstaculoPosition <= 75 && obstaculoPosition > -20 && bonecoPosition < 50){
+        cloud.style.animation = 'none'
+        cloud. style.left = `${cloudPosition}px`
         obstaculo.style.animation = 'none'
         obstaculo.style.left = `${obstaculoPosition}px`
         boneco.style.animation = 'none'
@@ -36,6 +40,7 @@ const loop = setInterval(() => {
 //--------Começar o jogo
 const start = () => {
     obstaculo.classList.add('começar')
+    cloud.classList.add('clouds')
 }
 começarJogo.addEventListener('click', start)
 
@@ -50,7 +55,7 @@ const divDistancia =() => {
     
     let distancia = document.createElement('div')
     campo.appendChild(distancia)
-    distancia.style.border = '2px solid green'
+    // distancia.style.border = '2px solid green'
     distancia.style.width = '250px'
     distancia.style.height = '30px'
     distancia.style.marginTop = '-536px'
