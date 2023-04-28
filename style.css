@@ -24,7 +24,7 @@ body{
 }
 
 #campo {
-    margin-top: auto;
+    margin-top: 20px;
     display: flex;
     flex-direction: column; 
     border: 5px solid black;
@@ -73,6 +73,7 @@ body{
     width: 130px;
     right: 100px;
     top: 100px;
+    z-index: 2;
 }
 
 .cloud2{
@@ -80,16 +81,41 @@ body{
     width: 80px;
     right: 10px;
     top: 100px;
+    z-index: 2;
 }
 
 .star {
     position: absolute;
     background-color: aliceblue;
-    width: 2px;
-    height: 2px;
-    border: 2px solid white;
+    width: 1px;
+    height: 1px;
+    border: 1px solid white;
     box-shadow: 0px 0px 5px aliceblue;
 }
+ .star1 {
+    top: 50px;
+    left: 90px;
+ }
+
+ .star2 {
+    top: 50px;
+    left: 290px;
+ }
+
+ .star3 {
+    top: 200px;
+    left: 190px;
+ }
+
+ .star4 {
+    top: 230px;
+    left: 120px;
+ }
+
+ .star5 {
+    top: 170px;
+    left: 90px;
+ }
 
 .boneco{
     border: 2px solid white; 
