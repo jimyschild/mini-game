@@ -4,7 +4,7 @@
 }
 
 :root{
---color1: #000706  ;
+--color1: #011311  ;
 --color2: #00272d ;
 --color3: #0a3636  ;
 --color4: #0c7e7e ;
@@ -24,13 +24,13 @@ body{
 }
 
 #campo {
-    margin-top: 20px;
+    margin-top: auto;
     display: flex;
     flex-direction: column; 
     border: 5px solid black;
     width: 90vw;
     height: 600px;
-    background: linear-gradient(180deg, var(--color2), var(--color4));
+    background: linear-gradient(180deg, var(--color1), var(--color4));
 } 
 
 .game-board{
@@ -42,9 +42,32 @@ body{
     position: relative;
     overflow: hidden;
     align-self: flex-end;
+    display: flex;
+    flex-direction: column;
     
 }
  
+#moon {
+    position: absolute;
+    align-self: center;
+    width: 80px;
+    top: 39px;
+    border-radius: 110%;   
+    z-index: 1;
+}
+
+.shadow-moon {
+    top: 48px;
+    border-radius: 100%;
+    align-self: center;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid gold;
+    box-shadow: 0px 0px 60px var(--color5);
+    
+}
+
 #cloud {
     position: absolute;
     width: 130px;
@@ -80,7 +103,7 @@ body{
 
 .buttons{
     margin-top: 2px;
-    position:absolute;
+    position: initial;
     border: 2px solid black;
     width: 30%;
     height: 60px;
@@ -90,7 +113,7 @@ body{
     position: fixed;
     align-items: center;
     right: 35%;
-    align-self: flex-start;
+    align-self: center;
     border-radius: 5px;
     background: linear-gradient(90deg, var(--color1), var(--color2), var(--color1));
 }
