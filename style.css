@@ -68,11 +68,27 @@ body{
     
 }
 
-#cloud {
+.cloud {
     position: absolute;
     width: 130px;
-    right: 0;
+    right: 100px;
     top: 100px;
+}
+
+.cloud2{
+    position: absolute;
+    width: 80px;
+    right: 10px;
+    top: 100px;
+}
+
+.star {
+    position: absolute;
+    background-color: aliceblue;
+    width: 2px;
+    height: 2px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 5px aliceblue;
 }
 
 .boneco{
@@ -160,6 +176,10 @@ body{
     animation: clouds-move 15s linear infinite;
 }
 
+.clouds2 {
+    animation: clouds2-move 25s linear infinite;
+}
+
 
 
 @keyframes obstaculo-animation {
@@ -194,6 +214,15 @@ body{
 @keyframes clouds-move {
     from {
         right: -130px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes clouds2-move {
+    from {
+        right: -90px;
     }
     to {
         right: 100%;
