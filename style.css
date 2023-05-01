@@ -160,6 +160,13 @@ body{
     background: linear-gradient(90deg, var(--color1), var(--color2), var(--color1));
 }
 
+.distancia {
+    font-size: larger;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
 .start{
     width: 70px;
     height: 50%;
