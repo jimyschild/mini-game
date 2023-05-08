@@ -7,6 +7,7 @@ const resetJogo = document.getElementById('reseta-jogo')
 const cloud = document.querySelector('.cloud')
 const cloud2 = document.querySelector('.cloud2')
 const distancia = document.querySelector('.distancia')
+let pontos = 0
 
 //-------pulo
 
@@ -20,28 +21,9 @@ const jump = () => {
 }
 gameBoard.addEventListener('click', jump)
 
-//--------movimento osbataculo
 
-const loop = setInterval(() => {
-    
-    const obstaculoPosition = obstaculo.offsetLeft;
-    const cloudPosition = cloud.offsetLeft;
-    const cloud2Position = cloud2.offsetLeft;
-    const bonecoPosition = +window.getComputedStyle(boneco).bottom.replace('px', '')
-    
-    if(obstaculoPosition <= 75 && obstaculoPosition > -20 && bonecoPosition < 50){
-        cloud.style.animation = 'none'
-        cloud.style.left = `${cloudPosition}px`
-        cloud2.style.animation ='none'
-        cloud2.style.left = `${cloud2Position}px`
-        obstaculo.style.animation = 'none'
-        obstaculo.style.left = `${obstaculoPosition}px`
-        boneco.style.animation = 'none'
-        boneco.style.bottom = `${bonecoPosition}px`
-        boneco.style.border = 'solid 2px #000706'
-        boneco.style.boxShadow = '0px 0px 10px var(--color1), 0px 0px 25px var(--color1) inset'
-    }
-}, 10)
+
+
 
 //--------Começar o jogo
 
@@ -49,13 +31,36 @@ const start = () => {
     obstaculo.classList.add('começar')
     cloud.classList.add('clouds')
     cloud2.classList.add('clouds2') 
-
-    let count = 0;
-
-    setInterval(function() {
-    count++;
-    distancia.innerText = `Distância percorrida: ${count}`
-    }, 2000);
+//--------movimento osbataculo
+   const loop = setInterval(() => {
+    
+    const obstaculoPosition = obstaculo.offsetLeft;
+    const cloudPosition = cloud.offsetLeft;
+    const cloud2Position = cloud2.offsetLeft;
+    const bonecoPosition = +window.getComputedStyle(boneco).bottom.replace('px', '')
+   
+        if(obstaculoPosition <= 75 && obstaculoPosition > -20 && bonecoPosition < 50){
+            cloud.style.animation = 'none'
+            cloud.style.left = `${cloudPosition}px`
+            cloud2.style.animation ='none'
+            cloud2.style.left = `${cloud2Position}px`
+            obstaculo.style.animation = 'none'
+            obstaculo.style.left = `${obstaculoPosition}px`
+            boneco.style.animation = 'none'
+            boneco.style.bottom = `${bonecoPosition}px`
+            boneco.style.border = 'solid 2px #000706'
+            boneco.style.boxShadow = '0px 0px 10px var(--color1), 0px 0px 25px var(--color1) inset'
+            
+        }
+        else{
+            if(bonecoPosition === 100){
+               pontos +=0.01
+            distancia.innerText = `Pontos: ${pontos.toFixed(1)}` 
+        } 
+            
+            
+        }
+    }, 1)
 }
 começarJogo.addEventListener('click', start)
 
