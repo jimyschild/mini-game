@@ -8,6 +8,9 @@ const cloud = document.querySelector('.cloud')
 const cloud2 = document.querySelector('.cloud2')
 const distancia = document.querySelector('.distancia')
 let pontos = 0
+let recorde = document.querySelector('.recorde')
+let maiorPontuacao = 0
+let mA = 0
 
 //-------pulo
 
@@ -21,19 +24,16 @@ const jump = () => {
 }
 gameBoard.addEventListener('click', jump)
 
-
-
-
-
 //--------Começar o jogo
 
 const start = () => {
     obstaculo.classList.add('começar')
     cloud.classList.add('clouds')
     cloud2.classList.add('clouds2') 
+
 //--------movimento osbataculo
-   const loop = setInterval(() => {
-    
+
+    const loop = setInterval(() => {
     const obstaculoPosition = obstaculo.offsetLeft;
     const cloudPosition = cloud.offsetLeft;
     const cloud2Position = cloud2.offsetLeft;
@@ -51,14 +51,20 @@ const start = () => {
             boneco.style.border = 'solid 2px #000706'
             boneco.style.boxShadow = '0px 0px 10px var(--color1), 0px 0px 25px var(--color1) inset'
             
-        }
-        else{
-            if(bonecoPosition === 100){
-               pontos +=0.01
-            distancia.innerText = `Pontos: ${pontos.toFixed(1)}` 
+            if(pontos > mA) {
+                mA = pontos
+                sessionStorage.setItem('recordeJogador', JSON.stringify(
+                    {
+                        melhorMarca: mA.toFixed(1),
+                        pto: pontos.toFixed(1) 
+                    }))
+             }     
         } 
-            
-            
+        else {
+            if(bonecoPosition === 100){
+                pontos +=0.91      
+                distancia.innerText = `Pontos: ${pontos.toFixed(1)}`               
+            }        
         }
     }, 1)
 }
@@ -68,10 +74,18 @@ começarJogo.addEventListener('click', start)
 
 const reset = () => {
     location.reload()
+    
 }
 resetJogo.addEventListener('click', reset)
 
-//-------- distancia percorrida
+window.onload = () => {
+    let record = JSON.parse(sessionStorage.getItem('recordeJogador'))
+        if(record) { 
+            mA = record.pto
+            maiorPontuacao = record.melhorMarca
+            recorde.innerText = `Recorde: ${maiorPontuacao}`
+        }
+}
 
 
 

@@ -161,10 +161,15 @@ body{
 }
 
 .distancia {
+    color: var(--color5);
     font-size: larger;
     position: absolute;
     top: 100px;
     left: 100px;
+}
+
+.recorde {
+    color: var(--color5);
 }
 
 .start{
