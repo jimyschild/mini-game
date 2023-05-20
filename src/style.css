@@ -89,7 +89,7 @@ body{
     background-color: aliceblue;
     width: 1px;
     height: 1px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     box-shadow: 0px 0px 5px aliceblue;
 }
  .star1 {
@@ -216,6 +216,10 @@ body{
 
 .clouds2 {
     animation: clouds2-move 25s linear infinite;
+}
+
+.brigth {
+    border: 1px solid white;
 }
 
 

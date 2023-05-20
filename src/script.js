@@ -7,6 +7,7 @@ const resetJogo = document.getElementById('reseta-jogo')
 const cloud = document.querySelector('.cloud')
 const cloud2 = document.querySelector('.cloud2')
 const distancia = document.querySelector('.distancia')
+let star = document.querySelector('#estrela')
 let pontos = 0
 let recorde = document.querySelector('.recorde')
 let maiorPontuacao = 0
@@ -16,10 +17,8 @@ let mA = 0
 
 const jump = () => {
     boneco.classList.add('jump')
-    
-
-    setTimeout(() =>{
-        boneco.classList.remove('jump')
+    setTimeout(() => {
+        boneco.classList.remove('jump') 
     },600)
 }
 gameBoard.addEventListener('click', jump)
@@ -78,6 +77,9 @@ const reset = () => {
 }
 resetJogo.addEventListener('click', reset)
 
+
+// gameBoard.addEventListener('mouseover', brilho)
+
 window.onload = () => {
     let record = JSON.parse(sessionStorage.getItem('recordeJogador'))
         if(record) { 
@@ -86,6 +88,15 @@ window.onload = () => {
             recorde.innerText = `Recorde: ${maiorPontuacao}`
         }
 }
+
+const brilho = () => {
+    star.classList.add('brigth')
+    setTimeout(() =>{
+        star.classList.remove('brigth')
+    },100)
+    setInterval(brilho, 3000)
+}
+brilho()
 
 
 
