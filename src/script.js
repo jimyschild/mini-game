@@ -89,14 +89,19 @@ window.onload = () => {
         }
 }
 
+//adicinando estrela pulsando
+
 const brilho = () => {
     star.classList.add('brigth')
     setTimeout(() =>{
         star.classList.remove('brigth')
-    },100)
-    setInterval(brilho, 3000)
+    },200)
+    setInterval(brilho, Math.floor(Math.random() * (12000 - 10000 + 1)) + 10000);
+    console.log(numeroAleatorio);
+    
 }
 brilho()
+
 
 
 
